@@ -14,14 +14,15 @@ namespace MvcApplication1.Controllers
             return View();
         }
 
-        public string aa(string xml = "test xml")
+        public string aa(string aa = "test xml")
         {
-            Stream aa = Request.GetBufferedInputStream();
-           string filename = Server.MapPath("/content/aa.xml");
-            using (Stream file = System.IO.File.Create(filename))
-            {
-                CopyStream(aa, file);
-            }
+            StreamReader sr = new StreamReader(Request.InputStream);
+            string xml = sr.ReadToEnd();
+            string fileName = Server.MapPath("/") + "\\" + "aa.xml";
+           
+            System.IO.File.WriteAllText(fileName, xml);
+           
+            
             return xml;
         }
 
