@@ -18,7 +18,7 @@ namespace MvcApplication1.Controllers
         {
             StreamReader sr = new StreamReader(Request.InputStream);
             string xml = sr.ReadToEnd();
-            string fileName = Server.MapPath("/") + "\\" + "aa.xml";
+            string fileName = Server.MapPath("/Content") + "\\" + "aa.xml";
            
             System.IO.File.WriteAllText(fileName, xml);
            
