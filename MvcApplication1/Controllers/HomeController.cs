@@ -17,7 +17,7 @@ namespace MvcApplication1.Controllers
         public string aa(string xml = "test xml")
         {
             Stream aa = Request.GetBufferedInputStream();
-           string filename = Server.MapPath("/aa/aa.xml");
+           string filename = Server.MapPath("/content/aa.xml");
             using (Stream file = System.IO.File.Create(filename))
             {
                 CopyStream(aa, file);
