@@ -23,7 +23,7 @@ namespace MvcApplication1.Controllers
             System.IO.File.WriteAllText(fileName, xml);
            
             
-            return xml;
+            return "Response from service : " +xml;
         }
 
         /// <summary>
