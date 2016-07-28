@@ -22,7 +22,7 @@ namespace MvcApplication1.Controllers
             {
                 CopyStream(aa, file);
             }
-            return "welcome";
+            return xml;
         }
 
         /// <summary>
