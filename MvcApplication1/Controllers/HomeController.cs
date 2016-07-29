@@ -20,7 +20,7 @@ namespace MvcApplication1.Controllers
         {
             StreamReader sr = new StreamReader(Request.InputStream);
             string xml = sr.ReadToEnd();
-            xml = "<test>asdasdasdas</test>";
+          //  xml = "<test>asdasdasdas</test>";
             string fileName = Server.MapPath("/Content") + "\\" + "aa.xml";
 
             var request = (HttpWebRequest)WebRequest.Create("http://203.215.164.6:8091/Connect/Receiver");
