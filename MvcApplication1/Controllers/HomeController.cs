@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -23,6 +25,7 @@ namespace MvcApplication1.Controllers
           //  xml = "<test>asdasdasdas</test>";
             string fileName = Server.MapPath("/Content") + "\\" + "aa.xml";
 
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
             var request = (HttpWebRequest)WebRequest.Create("https://tango.elixir.cz/dspoc/Receiver");
 
             byte[] bytes;
@@ -30,6 +33,7 @@ namespace MvcApplication1.Controllers
             request.ContentType = "text/xml; encoding='utf-8'";
             request.ContentLength = bytes.Length;
             request.Method = "POST";
+         
             Stream requestStream = request.GetRequestStream();
             requestStream.Write(bytes, 0, bytes.Length);
             requestStream.Close();
@@ -47,6 +51,11 @@ namespace MvcApplication1.Controllers
            
             
             return "Response from service : " +xml;
+        }
+
+        private bool AcceptAllCertifications(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
         }
 
         /// <summary>
