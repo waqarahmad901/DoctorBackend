@@ -23,7 +23,7 @@ namespace MvcApplication1.Controllers
           //  xml = "<test>asdasdasdas</test>";
             string fileName = Server.MapPath("/Content") + "\\" + "aa.xml";
 
-            var request = (HttpWebRequest)WebRequest.Create("http://203.215.164.6:8091/DocuSign_POC/Receiver");
+            var request = (HttpWebRequest)WebRequest.Create("https://tango.elixir.cz/dspoc/Receiver");
 
             byte[] bytes;
             bytes = System.Text.Encoding.ASCII.GetBytes(xml);
