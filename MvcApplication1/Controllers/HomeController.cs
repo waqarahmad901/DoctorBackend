@@ -28,7 +28,7 @@ namespace MvcApplication1.Controllers
                 string fileName = Server.MapPath("/Content") + "\\" + "aa.xml";
 
                 ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
-                var request = (HttpWebRequest)WebRequest.Create("https://52.50.239.121/DocuSign_POC/Receiver");
+                var request = (HttpWebRequest)WebRequest.Create("http://tango.elixir.cz:8080/DocuSign_POC/Receiver");
 
                 byte[] bytes;
                 bytes = System.Text.Encoding.ASCII.GetBytes(xml);
