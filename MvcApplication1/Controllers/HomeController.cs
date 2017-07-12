@@ -18,10 +18,12 @@ namespace MvcApplication1.Controllers
             return View();
         }
 
-        public string aa(string aa = "test xml")
+        public string aa(string requestUrl)
         {
             try
             {
+                requestUrl = HttpUtility.UrlDecode(requestUrl);
+
                 StreamReader sr = new StreamReader(Request.InputStream);
                 string xml = sr.ReadToEnd();
                 //  xml = "<test>asdasdasdas</test>";
