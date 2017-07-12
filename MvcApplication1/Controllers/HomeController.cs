@@ -30,7 +30,7 @@ namespace MvcApplication1.Controllers
                 string fileName = Server.MapPath("/Content") + "\\" + "aa.xml";
 
                 ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
-                var request = (HttpWebRequest)WebRequest.Create("http://203.215.164.8:8080/eIDAS_app-portlet/Receiver");
+                var request = (HttpWebRequest)WebRequest.Create(requestUrl);
 
                 byte[] bytes;
                 bytes = System.Text.Encoding.ASCII.GetBytes(xml);
